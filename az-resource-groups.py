@@ -15,7 +15,8 @@ def delete_azure_resource_group(resource_group_name):
 	"""Deletes a specified Azure resource group."""
 	print(f"Deleting Azure resource group: {resource_group_name}")
 
-	result = subprocess.run(['az', 'group', 'delete', '--name', resource_group_name], capture_output=True, text=True)
+	# result = subprocess.run(['az', 'group', 'delete', '--name', resource_group_name], capture_output=True, text=True)
+	result = subprocess.run(['az', 'group', 'delete', '--name', resource_group_name, '--yes', '--no-wait'], capture_output=True, text=True)
 
 	if result.returncode == 0:
 		print(f"Resource group '{resource_group_name}' deletion initiated successfully.")
